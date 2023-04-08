@@ -14,7 +14,7 @@
 #include "tusb.h"
 //#include "hardware/irq.h"
 #include "pico/unique_id.h"
-
+extern char usb_serial[];
 
 //#define USBD_VID (0x2E8A) // Raspberry Pi
 //#define USBD_PID (0x000a) // Raspberry Pi Pico SDK CDC
@@ -159,7 +159,7 @@ const uint16_t *tud_descriptor_string_cb(uint8_t index, __unused uint16_t langid
             break;
 
         case USBD_STR_SERIAL:
-            len = string_to_descriptor("11223344", desc_str);
+            len = string_to_descriptor(usb_serial, desc_str);
             break;
 
         case USBD_STR_CDC0:

@@ -40,16 +40,16 @@ add_executable(pico-debug
 #
 # Now make sure we can generate the file data
 #
-file (GLOB files ${CMAKE_CURRENT_LIST_DIR}/files/* )
+# file (GLOB files ${CMAKE_CURRENT_LIST_DIR}/files/* )
 
-add_custom_target(fgen DEPENDS filedata.c filedata.h)
-add_custom_command(OUTPUT filedata.c filedata.h
-  DEPENDS ${files}
-  COMMAND ${CMAKE_CURRENT_LIST_DIR}/filegen ${CMAKE_CURRENT_LIST_DIR}/files filedata.c filedata.h
-)
-set_source_files_properties(filedata.c filedata.h PROPERTIES
-  GENERATED TRUE)
-add_dependencies(pico-debug fgen)
+# add_custom_target(fgen DEPENDS filedata.c filedata.h)
+# add_custom_command(OUTPUT filedata.c filedata.h
+#   DEPENDS ${files}
+#   COMMAND ${CMAKE_CURRENT_LIST_DIR}/filegen ${CMAKE_CURRENT_LIST_DIR}/files filedata.c filedata.h
+# )
+# set_source_files_properties(filedata.c filedata.h PROPERTIES
+#   GENERATED TRUE)
+# add_dependencies(pico-debug fgen)
 
 
 pico_generate_pio_header(pico-debug ${CMAKE_CURRENT_LIST_DIR}/swd.pio)
